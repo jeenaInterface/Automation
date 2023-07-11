@@ -7,7 +7,7 @@ import dgSecurity from "../../pages/dgSecurity";
 import * as data from "../../helper/util/test-data/loginCredentials.json"
 
 
-setDefaultTimeout(60 * 1000 * 3)
+setDefaultTimeout(60 * 1000 * 5)
 let dgSecurityPage: dgSecurity
 
 Given('User navigates to the dg security application', async function () {

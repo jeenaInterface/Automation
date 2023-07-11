@@ -5,6 +5,7 @@ import { invokeBrowser } from "../helper/browsers/browserManager";
 import { getEnv } from "../helper/env/env";
 import { createLogger } from "winston";
 import { options } from "../helper/util/logger";
+const { sendEmail } = require('../helper/util/emailUtils/email');
 const fs = require("fs-extra");
 
 let browser: Browser;
@@ -98,7 +99,9 @@ After(async function ({ pickle, result }) {
 
 AfterAll(async function () {
     await browser.close();
+    
 })
+
 
 function getStorageState(user: string): string | { cookies: { name: string; value: string; domain: string; path: string; expires: number; httpOnly: boolean; secure: boolean; sameSite: "Strict" | "Lax" | "None"; }[]; origins: { origin: string; localStorage: { name: string; value: string; }[]; }[]; } {
     if (user.endsWith("admin"))
@@ -106,66 +109,4 @@ function getStorageState(user: string): string | { cookies: { name: string; valu
     else if (user.endsWith("lead"))
         return "src/helper/auth/lead.json";
 
-    const nodemailer = require('nodemailer');
-
-
-    async function emailSend(error) {
-
-        try {
-
-            let transporter = nodemailer.createTransport({
-
-                host: 'smtp.office365.com',
-
-                port: 587,
-
-                secure: true,
-
-                auth: {
-
-                    user: 'jeena.manuel@interfacesys.com',
-
-                    pass: 'Interface2',
-
-                },
-
-            });
-
-            let message = {
-
-                from: 'jeena.manuel@interfacesys.com',
-
-                to: 'jmanuel@suyati.com',
-
-                subject: 'Interface Automation Report',
-
-                text: error,
-
-                attachments: [
-
-                    {
-
-                        filename: 'index.html',
-
-                        path: 'test-results/report/',
-
-                    },
-
-                ],
-
-            };
-
-            let info = await transporter.sendMail(message);
-
-            console.log('=====Email Sent=====');
-
-        } catch (error) {
-
-            throw new Error(error);
-
-        }
-
-    }
-
-    emailSend("Example error message");
 }
