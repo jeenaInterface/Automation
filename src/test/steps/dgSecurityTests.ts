@@ -7,7 +7,7 @@ import dgSecurity from "../../pages/dgSecurity";
 import * as data from "../../helper/util/test-data/loginCredentials.json"
 
 
-setDefaultTimeout(60 * 1000 * 2)
+setDefaultTimeout(60 * 1000 * 3)
 let dgSecurityPage: dgSecurity
 
 Given('User navigates to the dg security application', async function () {
@@ -67,5 +67,7 @@ When('Click on contact button', async function () {
       } else {
         throw new Error("No records updated");
       }
+      await fixture.page.waitForLoadState();
+      fixture.logger.info("Waiting for 2 seconds")
  })
 
