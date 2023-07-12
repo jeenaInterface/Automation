@@ -5,7 +5,6 @@ import { invokeBrowser } from "../helper/browsers/browserManager";
 import { getEnv } from "../helper/env/env";
 import { createLogger } from "winston";
 import { options } from "../helper/util/logger";
-const { sendEmail } = require('../helper/util/emailUtils/email');
 const fs = require("fs-extra");
 
 let browser: Browser;
