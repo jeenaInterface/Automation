@@ -26,6 +26,12 @@ export default class Oracle {
         search_button_in_service_request: "//div[@id='_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r1:0:pt1:r19:1:stsSrch:stsSF:stsSRCH']",
         ascending_button: "//a[@class= 'x1hu']",
         date_reported: "//*[@id='_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r1:0:pt1:r19:1:stsSrch:srl_t2::db']/table/tbody/tr[1]/td[2]/span",
+        serviceRequestIcon: "//*[@id='itemNode_service_service_requests']",
+        Listddl: "//input[@id='_FOpt1:_FOr1:0:_FONSr2:0:MAt1:0:pt1:ls1:slctChoice::content']",
+        HomeIcon: "//div//div//a[@title='Home']",
+        AllOpenServiceRequests: "//*[@id='_FOpt1:_FOr1:0:_FONSr2:0:MAt1:0:pt1:ls1:slctChoice::pop']/li[7]"
+
+
     }
 
     async navigateToLoginPage() {
@@ -59,7 +65,6 @@ export default class Oracle {
     }
 
     async clickSearchBox() {
-        // await this.base.waitAndClick(this.Elements.searchBox);
         await this.page.getByPlaceholder(this.Elements.searchBox).click();
     }
 
@@ -109,6 +114,21 @@ export default class Oracle {
         const innertext = await FirstCreatedDate.innerText();
         return innertext
     } 
+    async clickServiceRequestIcon() {
+        await this.base.waitAndClick(this.Elements.HomeIcon);
+        await this.base.waitAndClick(this.Elements.serviceRequestIcon);
+    }
+    async ListDDLActions() {
+        await this.base.waitAndClick(this.Elements.Listddl);
+        await this.page.locator(this.Elements.AllOpenServiceRequests).click();
+
+    }
+
+    async VerifySr(){
+
+    }
+
+
 
 
 }

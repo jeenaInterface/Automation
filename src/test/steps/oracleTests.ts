@@ -105,3 +105,14 @@ When('Check whether the SR is created', async function () {
 
 });
 
+When('click on Service Request Icon', async function () {
+    await oraclePage.clickServiceRequestIcon();
+});
+
+When('Select All Open Service Requests from the list', async function () {
+    await oraclePage.ListDDLActions();
+});
+
+When('Verify SR is created after submit Interactive Lite search', async function () {
+    Error("No records created")
+});
