@@ -9,7 +9,7 @@ async function sendEmail() {
       secure: false,
       auth: {
         user: 'jeena.manuel@interfacesys.com',
-        pass: 'Interface2',
+        pass: 'Interface3',
       },
     });
 
