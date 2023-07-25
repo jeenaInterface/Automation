@@ -1,6 +1,6 @@
 Feature: Verify if the contact update feature functions correctly when the APM checkbox is enabled.
 
-  @order-4
+@automation
   Scenario: Enable APM checkbox in oracle
     When User navigates to the oracle application
     When User enter the username 
@@ -11,7 +11,7 @@ Feature: Verify if the contact update feature functions correctly when the APM c
     When Click on APM checkbox
     When Click on Save
     
-@order-5
+@automation
   Scenario: Update an account in dgSecurityManager
     When User navigates to the dg security application
     Given User enter the username in dg security
@@ -23,7 +23,7 @@ Feature: Verify if the contact update feature functions correctly when the APM c
     When Click on contact button
     When Verify success message
 
-  @order-6
+@automation
   Scenario: Check case is created in apm
     When User navigates to the APM application
     Given User enter the username in apm

@@ -1,6 +1,6 @@
  Feature: Verify whether the contact update functions correctly when the APM checkbox is disabled.
 
-@order-1
+@automation
   Scenario: Uncheck the apm status checkbox in oracle
     When User navigates to the oracle application
     When User enter the username
@@ -11,7 +11,7 @@
     When Uncheck on APM checkbox
     When Click on Save
     
-@order-2
+@automation
   Scenario: Update an account in dgSecurityManager
     When User navigates to the dg security application
     Given User enter the username in dg security
@@ -23,7 +23,7 @@
     When Click on contact button
     When Verify success message
 
-  @order-3
+ @automation
   Scenario: Check whether a SR is created in oracle
     When User navigates to the oracle application
     When User enter the username
