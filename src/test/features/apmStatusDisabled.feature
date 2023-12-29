@@ -1,6 +1,6 @@
  Feature: Verify whether the contact update functions correctly when the APM checkbox is disabled.
 
-@automation
+@automation1
   Scenario: Uncheck the apm status checkbox in oracle
     When User navigates to the oracle application
     When User enter the username

@@ -1,6 +1,6 @@
 Feature: Verify if the contact update feature functions correctly when the APM checkbox is enabled.
 
-@automation1
+@automation
   Scenario: Enable APM checkbox in oracle
     When User navigates to the oracle application
     When User enter the username 

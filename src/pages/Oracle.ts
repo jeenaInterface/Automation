@@ -18,8 +18,8 @@ export default class Oracle {
         textAccount: "//div[@title='Account: Interface Security Systems']",
         profileTab: "//a[@id='_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r1:0:pt1:Profile::disAcr']",
         // profile_tab: page.get_by_role("link", name="Profile")
-        apmEnabledCheckbox: "(//label[@class='x17h'])[2]",
-        save_and_close_button: "//button[@title='Save']",
+        apmEnabledCheckbox: "(//input[@class='x17b']/following-sibling::label)[2]",
+        save_and_close_button: "//button[@title='Save and Close']",
         service_request_tab: "//a[@id='_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r1:0:pt1:ServiceRequests::disAcr']",
         service_status_ddl: "//input[@id='_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r1:0:pt1:r19:1:stsSrch:stsSF:stsQ:value00::content']",
         all_from_status_list: "//input[@id ='_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r1:0:pt1:r19:1:stsSrch:stsSF:stsQ:value00::saId']",
@@ -87,7 +87,10 @@ export default class Oracle {
     }
 
     async uncheckAPMCheckbox() {
+        console.log('Before unchecking the checkbox');
         await this.page.locator(this.Elements.apmEnabledCheckbox).uncheck();
+        console.log('After unchecking the checkbox');
+
     }
     async clickServiceRequest() {
         await this.base.waitAndClick(this.Elements.service_request_tab);
@@ -113,7 +116,7 @@ export default class Oracle {
         const FirstCreatedDate = await this.page.locator(this.Elements.date_reported);
         const innertext = await FirstCreatedDate.innerText();
         return innertext
-    } 
+    }
     async clickServiceRequestIcon() {
         await this.base.waitAndClick(this.Elements.HomeIcon);
         await this.base.waitAndClick(this.Elements.serviceRequestIcon);
@@ -124,7 +127,7 @@ export default class Oracle {
 
     }
 
-    async VerifySr(){
+    async VerifySr() {
 
     }
 
